@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form</title>
+
+    <style>
+       h2 {
+        text-align: center;
+       }
+
+       input {
+        width: 250px;
+        margin: 10px;
+       }
+
+       form {
+        text-align: center;
+        font-size: 20px;
+        width: 600px;
+        margin: 20px auto;
+       }
+    </style>
+</head>
+<body>
+    <h2>Registration form</h2>
+    <form name="myForm">
+
+    <label for="usernameInput">Username:</label>
+    <input type="text" placeholder="Enter username" id="usernameInput" >
+    <br>
+    <label for="passwordInput">Password:</label>
+    <input type="password" placeholder="Enter password" id="passwordInput" >
+    <br>
+    <label for="confirmPassword">Confirm password:</label>
+    <input type="password" placeholder="Confirm password" id="confirmPassword" >
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" placeholder="Enter email" id="email" >
+    <br>
+    <label for="birthdate">Date of birth:</label>
+    <input type="date" id="birthdate" >
+    <br>
+    <br>
+    <button type="button" id="Register" onclick="return validate()">Register</button>
+    <br>
+    <br>
+    <button type="button" id="github">Register with Github</button>
+    <br>
+    <button type="button" id="google">Register with Google</button>
+
+    </form>
+
+    <script>
+        function validate() {
+            let usernameInput = document.myForm.usernameInput;
+            let passwordInput = document.myForm.passwordInput;
+            let confirmPassword = document.myForm.confirmPassword;
+            let email = document.myForm.email;
+            let birthdate = document.myForm.birthdate;
+
+            if (usernameInput.value.length <= 0) {
+                alert("Name is required");
+                usernameInput.focus();
+                return false;
+            }
+
+            if (passwordInput.value.length <= 0) {
+                alert("Password is required");
+                passwordInput.focus();
+                return false;
+            }
+
+            if (confirmPassword.value.length <= 0) {
+                alert("Confirm password");
+                confirmPassword.focus();
+                return false;
+            }
+
+            if (myForm.passwordInput.value != myForm.confirmPassword.value) {
+                alert("Passwords don't match");
+                confirmPassword.focus();
+                return false;
+            }
+
+            if (email.value.length <= 0) {
+                alert("Email is required");
+                email.focus();
+                return false;
+            }
+
+            if (birthdate.value.length <= 0) {
+                alert("Birthdate is required");
+                birthdate.focus();
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>
